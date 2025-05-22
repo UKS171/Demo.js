@@ -1,2 +1,17 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+function saveForm() {
+  const email = document.getElementById("emailInput").value;
+  localStorage.setItem("email", email);
+  alert("Form Saved!");
+}
+function clearForm() {
+  localStorage.removeItem("email");
+  localStorage.clear();
+  sessionStorage.clear();
+  document.getElementById("emailInput").value = "";
+  alert("Form Cleared!");
+}
+// Load saved email when the page opens
+document.addEventListener("DOMContentLoaded", () => {
+  const savedEmail = localStorage.getItem("email");
+  if (savedEmail) document.getElementById("emailInput").value = usedEmail;
+});
